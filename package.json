@@ -4,7 +4,7 @@
   "description": "",
   "main": "server.js",
   "dependencies": {
-    "express": "^4.16.3",
+    "express": "^4.17.1",
     "express-handlebars": "^5.1.0",
     "mysql2": "^2.2.5",
     "sequelize": "^6.3.5"
@@ -15,5 +15,14 @@
     "start": "node server.js"
   },
   "author": "",
-  "license": "ISC"
+  "license": "ISC",
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/dyoder838/POD.git"
+  },
+  "keywords": [],
+  "bugs": {
+    "url": "https://github.com/dyoder838/POD/issues"
+  },
+  "homepage": "https://github.com/dyoder838/POD#readme"
 }
