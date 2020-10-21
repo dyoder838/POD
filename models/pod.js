@@ -7,8 +7,13 @@ module.exports = function(sequelize, DataTypes) {
             allowNull: false
           },
     });
-Pod.belongsToMany(Student, { through: Pod_Student });
-return Teacher;
+    Pod.associate=function(models){
+    Pod.belongsToMany(models.Student, { through: "Pod_Student" });
+    Pod.hasMany(models.Parent, {
+        onDelete:  "cascade"
+    })
+}
+return Pod;
 
   };
   
