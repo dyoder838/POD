@@ -27,6 +27,9 @@ module.exports = function(sequelize, DataTypes) {
           allowNull:true
       },
     });
+    Parent.associate=function(models){
+      Parent.belongsTo(models.Pod)
+    }
     return Parent;
   };
   // I think we may need to create a parent_pod junction table?
