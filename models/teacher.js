@@ -1,4 +1,5 @@
 module.exports = function(sequelize, DataTypes) {
+=======
     var Teacher = sequelize.define("Teacher", {
         first_name:{
             type: DataTypes.STRING,
