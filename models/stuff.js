@@ -6,3 +6,5 @@ module.exports = function(sequelize, DataTypes) {
     return Stuff;
   };
   
+
+  // Need to delete this file

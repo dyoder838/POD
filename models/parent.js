@@ -1,5 +1,11 @@
 module.exports = function(sequelize, DataTypes) {
     var Parent = sequelize.define("Parent", {
+      id: {
+        type: DataTypes.INTEGER,
+        primaryKey: true,
+        autoIncrement: true,
+        allowNull: false
+      },
       first_name:{
         type: DataTypes.STRING,
         allowNull:false
@@ -20,8 +26,7 @@ module.exports = function(sequelize, DataTypes) {
           type: DataTypes.TEXT,
           allowNull:true
       },
-      // primaryKey:true
     });
     return Parent;
   };
-  
+  // I think we may need to create a parent_pod junction table?
