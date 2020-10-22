@@ -2,12 +2,6 @@
 
 module.exports = function(sequelize, DataTypes) {
     var Parent = sequelize.define("Parent", {
-      id: {
-        type: DataTypes.INTEGER,
-        primaryKey: true,
-        autoIncrement: true,
-        allowNull: false
-      },
       first_name:{
         type: DataTypes.STRING,
         allowNull:false
@@ -21,15 +15,30 @@ module.exports = function(sequelize, DataTypes) {
         allowNull:false,
         unique:true
       },
-       // password: DataTypes.STRING,
-      available_days:{
+      monday:{
           type: DataTypes.BOOLEAN
       },
-      bio: {
-          type: DataTypes.TEXT,
-          allowNull:true
+      tuesday:{
+          type: DataTypes.BOOLEAN
       },
+      wednesday:{
+          type: DataTypes.BOOLEAN
+      },
+      thursday:{
+          type: DataTypes.BOOLEAN
+      },
+      friday:{
+          type: DataTypes.BOOLEAN
+      },
+      saturday:{
+          type: DataTypes.BOOLEAN
+      },
+      sunday:{
+        type: DataTypes.BOOLEAN
+      },
+       // password: DataTypes.STRING,
     });
+
     Parent.associate=function(models){
       Parent.belongsTo(models.Pod)
     }; 

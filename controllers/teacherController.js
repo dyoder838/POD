@@ -1,9 +1,19 @@
-const express = require("express");
+const express = require('express');
 const router = express.Router();
-const db = require("../models")
+const db = require('../models');
 
-router.get('/teacher',function(req,res){
-    res.render("teacher",{});
-})
+// sign up
+router.post("/signup", (req, res) => {
+    console.log(req.body);
+    db.User.create({
+        email: req.body.email,
+        password: req.body.password
+    }).then(function () {
+        res.redirect(307, "/login");
+    }).catch(function (err) {
+        console.log(err);
+        res.json(err);
+    });
+});
 
 module.exports = router;

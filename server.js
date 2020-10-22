@@ -15,12 +15,12 @@ const indexController = require("./controllers/indexController");
 const parentController = require("./controllers/parentController");
 const teacherController = require("./controllers/teacherController");
 const studentController = require("./controllers/studentController");
-const podController = require("./controllers/podController");
+// const podController = require("./controllers/podController");
 app.use(indexController);
 app.use("/api/parents",parentController);
 app.use("/api/teachers",teacherController);
 app.use("/api/students",studentController);
-app.use("/api/pods",podController);
+// app.use("/api/pods",podController);
 
 // Databse Models  
 const db = require("./models");
