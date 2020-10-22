@@ -4,7 +4,7 @@ const db = require('../models');
 // const bcrypt = require('bcrypt');
 
 // Parent Signup
-router.post('/signup/parent', (req, res) => {
+router.post('/api/parent', (req, res) => {
     db.Parent.create({
         first_name: req.body.parentFirst,
         last_name: req.body.parentLast,
