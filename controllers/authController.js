@@ -5,6 +5,7 @@ const db = require('../models');
 
 // Parent Signup
 router.post('/api/parent', (req, res) => {
+    console.log(req.body);
     db.Parent.create({
         first_name: req.body.parentFirst,
         last_name: req.body.parentLast,
@@ -21,6 +22,19 @@ router.post('/api/parent', (req, res) => {
             id: newUser.id
         }
         res.redirect("/parent")
+    }).catch(err => {
+        console.log(err);
+        res.status(500).send("server error")
+    })
+})
+
+
+// Student Signup
+router.post('/signup/student', (req, res) => {
+    console.log(req.body)
+    db.Student.create({
+        first_name: req.body.studentFirst,
+        last_name: req.body.studentLast,
     }).catch(err => {
         console.log(err);
         res.status(500).send("server error")
