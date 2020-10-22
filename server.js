@@ -12,14 +12,12 @@ app.set("view engine", "handlebars");
 
 // Controllers
 const indexController = require("./controllers/indexController");
-const parentController = require("./controllers/parentController");
-const teacherController = require("./controllers/teacherController");
 const studentController = require("./controllers/studentController");
+const authController = require("./controllers/authController");
 // const podController = require("./controllers/podController");
 app.use(indexController);
-app.use("/api/parents",parentController);
-app.use("/api/teachers",teacherController);
 app.use("/api/students",studentController);
+app.use(authController);
 // app.use("/api/pods",podController);
 
 // Databse Models  

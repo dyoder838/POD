@@ -6,11 +6,15 @@ router.get('/',function(req,res){
     res.render("login",{});
 })
 
+<<<<<<< HEAD
 router.get('/login',function(req,res){
     res.render("login",{});
 })
 
 router.get('/signup',function(req,res){
+=======
+router.get('/signup/parent',function(req,res){
+>>>>>>> dev
     res.render("signup",{});
 })
 
