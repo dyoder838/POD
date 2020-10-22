@@ -1,2 +1,0 @@
-// Routes: /, api/teacher, 
-

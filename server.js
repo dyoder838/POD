@@ -1,51 +1,32 @@
-// *********************************************************************************
-// Server.js - This file is the initial starting point for the Node/Express server.
-// *********************************************************************************
+// Express App
+const express = require("express");
+const app = express();
+app.use(express.urlencoded({ extended: true }));
+app.use(express.json());
+app.use(express.static("public"));
 
-// Dependencies
-// =============================================================
-// var express = require("express");
-// var db = require("./models")
+// Handlebars
+const exphbs = require("express-handlebars");
+app.engine("handlebars", exphbs({ defaultLayout: "main" }));
+app.set("view engine", "handlebars");
 
-// Sets up the Express App
-// =============================================================
-// var app = express();
-// var PORT = process.env.PORT || 8080;
+// Controllers
+const indexController = require("./controllers/indexController");
+const studentController = require("./controllers/studentController");
+const authController = require("./controllers/authController");
+// const podController = require("./controllers/podController");
+app.use(indexController);
+app.use("/api/students",studentController);
+app.use(authController);
+// app.use("/api/pods",podController);
 
+// Databse Models  
+const db = require("./models");
+const PORT = process.env.PORT || 8080;
 
-// Starts the server to begin listening
-// =============================================================
-
-// =============================================================
-
-
-var express = require('express');
-// Sets up the Express App
-// =============================================================
-var app = express();
-var PORT = process.env.PORT || 8080;
-// var allRoutes = require('./controllers');
-
-// Requiring our models for syncing
-var db = require('./models');
-
-// Sets up the Express app to handle data parsing
-// app.use(express.urlencoded({ extended: true }));
-// app.use(express.json());
-
-// Static directory
-// app.use(express.static('public'));
-
-// var exphbs = require('express-handlebars');
-// app.engine('handlebars', exphbs({ defaultLayout: 'main' }));
-// app.set('view engine', 'handlebars');
-
-app.get('/', function(req,res){
-    res.send("home page")
-})
-
-db.sequelize.sync().then(function(){
-    app.listen(PORT, function() {
+// Start App
+db.sequelize.sync({ force: false }).then(() => {
+    app.listen(PORT, () => {
     console.log("App listening on PORT " + PORT);
-});
+    });
 });
