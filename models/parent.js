@@ -1,3 +1,5 @@
+// const bcrypt = require("bcrypt");
+
 module.exports = function(sequelize, DataTypes) {
     var Parent = sequelize.define("Parent", {
       first_name:{
@@ -32,16 +34,18 @@ module.exports = function(sequelize, DataTypes) {
           type: DataTypes.BOOLEAN
       },
       sunday:{
-          type: DataTypes.BOOLEAN
+        type: DataTypes.BOOLEAN
       },
-      bio: {
-          type: DataTypes.TEXT,
-          allowNull:true
-      },
+       // password: DataTypes.STRING,
     });
+
     Parent.associate=function(models){
       Parent.belongsTo(models.Pod)
-    }
+    }; 
+
+//   Parent.beforeCreate(function(parent){
+//     parent.password = bcrypt.hashSync(parent.password, bcrypt.genSaltSync(10),null);
+// })
     return Parent;
   };
-  // I think we may need to create a parent_pod junction table?
+//  Needs to have password field & bcrypt! 
