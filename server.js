@@ -1,40 +1,34 @@
-// *********************************************************************************
-// Server.js - This file is the initial starting point for the Node/Express server.
-// *********************************************************************************
-
-// Dependencies
-var express = require('express');
-
-var exphbs = require("express-handlebars");
-
-// Sets up the Express App
-// =============================================================
-var app = express();
-var PORT = process.env.PORT || 8080;
-// var allRoutes = require('./controllers');
-
-// Requiring our models for syncing
-var db = require('./models');
-
-// Sets up the Express app to handle data parsing
+// Express App
+const express = require("express");
+const app = express();
 app.use(express.urlencoded({ extended: true }));
 app.use(express.json());
+app.use(express.static("public"));
 
-// Static directory
-// app.use(express.static('public'));
+// Handlebars
+const exphbs = require("express-handlebars");
+app.engine("handlebars", exphbs({ defaultLayout: "main" }));
+app.set("view engine", "handlebars");
 
-var exphbs = require('express-handlebars');
-app.engine('handlebars', exphbs({ defaultLayout: 'main' }));
-app.set('view engine', 'handlebars');
+// Controllers
+const indexController = require("./controllers/indexController");
+const parentController = require("./controllers/parentController");
+const teacherController = require("./controllers/teacherController");
+const studentController = require("./controllers/studentController");
+// const podController = require("./controllers/podController");
+app.use(indexController);
+app.use("/api/parents",parentController);
+app.use("/api/teachers",teacherController);
+app.use("/api/students",studentController);
+// app.use("/api/pods",podController);
 
-app.get('/', function(req,res){
-    res.send("home page")
-})
+// Databse Models  
+const db = require("./models");
+const PORT = process.env.PORT || 8080;
 
-db.sequelize.sync().then(function(){
-    app.listen(PORT, function() {
+// Start App
+db.sequelize.sync({ force: false }).then(() => {
+    app.listen(PORT, () => {
     console.log("App listening on PORT " + PORT);
+    });
 });
-});
-
-// =============================================================
