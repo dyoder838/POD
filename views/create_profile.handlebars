@@ -1,0 +1,191 @@
+<main class="container">
+
+    {{!-- teacher or parent selector --}}
+    <section class="row">
+
+        <article class="col xl12">
+            <h3>Please select your role below</h3>
+        </article>
+
+    </section>
+
+
+    <section id="role-section-row" class="row">
+
+        <form id="role-form-row" class="col xl12" action="#">
+            <p>
+                <label>
+                    <input class="with-gap" name="group1" type="radio" />
+                    <span>Parent</span>
+                </label>
+            </p>
+            <p>
+                <label>
+                    <input class="with-gap" name="group1" type="radio" />
+                    <span>Teacher</span>
+                </label>
+            </p>
+        </form>
+
+    </section>
+
+    {{!-- parent table data source --}}
+    {{!-- parent first name, last name, email   --}}
+    <section class="row">
+
+        <article class="col xl12">
+            <h3>Tell us who you are</h3>
+        </article>
+
+    </section>
+
+    <section id="parent-section-row" class="row">
+
+        <form id="parent-first-name-form" class="input-field col xl4">
+
+            <input id="first_name" type="text" class="validate">
+            <label for="first_name">First Name</label>
+            <span class="helper-text" data-error="wrong" data-success="right">Helper text</span>
+
+        </form>
+
+        <form id="parent-last-name-form" class="input-field col xl4">
+
+            <input id="last_name" type="text" class="validate">
+            <label for="last_name">Last Name</label>
+            <span class="helper-text" data-error="wrong" data-success="right">Helper text</span>
+
+        </form>
+
+        <form id="parent-email-form" class="input-field col xl4">
+
+            <input id="email" type="email" class="validate">
+            <label for="email">Email</label>
+            <span class="helper-text" data-error="wrong" data-success="right">Helper text</span>
+
+        </form>
+
+    </section>
+
+    <section class="row">
+
+        <article class="col xl12">
+            <h3>Tell us more...</h3>
+        </article>
+
+    </section>
+    <!-- parent bio -->
+    <section id="bio-section-row" class="row">
+
+        <form id="parent-bio-form" class="col xl12">
+
+            <div class="row">
+                <div class="input-field col s12">
+                    <textarea id="textarea1" class="materialize-textarea"></textarea>
+                    <label for="textarea1">Textarea</label>
+                </div>
+            </div>
+
+        </form>
+
+    </section>
+
+    <!-- pod table creation -->
+    <!-- day selectors -->
+    <section class="row">
+
+        <article class="col xl12">
+            <h3>If you are available to help other students with their school work, which days would you be able to
+                help? </h3>
+        </article>
+
+    </section>
+
+    <section class="row">
+
+        <form id="day-checkbox-form" class="col xl12" action="#">
+
+            <p>
+                <label>
+                    <input type="checkbox" />
+                    <span>Monday</span>
+                </label>
+            </p>
+            <p>
+                <label>
+                    <input type="checkbox" />
+                    <span>Tuesday</span>
+                </label>
+            </p>
+            <p>
+                <label>
+                    <input type="checkbox" />
+                    <span>Wednesday</span>
+                </label>
+            </p>
+            <p>
+                <label>
+                    <input type="checkbox" />
+                    <span>Thursday</span>
+                </label>
+            </p>
+            <p>
+                <label>
+                    <input type="checkbox" />
+                    <span>Friday</span>
+                </label>
+            </p>
+
+        </form>
+
+    </section>
+
+    <!-- student table creation  -->
+    <section class="row">
+
+        <article class="col xl12">
+            <h3>who is your child?</h3>
+        </article>
+
+    </section>
+    <section id="student-section-row" class="row">
+
+        <form id="student-first-name-form" class="input-field col xl4">
+
+            <input id="first_name" type="text" class="validate">
+            <label for="first_name">First Name</label>
+            <span class="helper-text" data-error="wrong" data-success="right">Helper text</span>
+
+        </form>
+
+        <form id="student-last-name-form" class="input-field col xl4">
+
+            <input id="last_name" type="text" class="validate">
+            <label for="last_name">Last Name</label>
+            <span class="helper-text" data-error="wrong" data-success="right">Helper text</span>
+
+        </form>
+
+        <form id="student-email-form" class="input-field col xl4">
+
+            <input id="email" type="email" class="validate">
+            <label for="email">Email</label>
+            <span class="helper-text" data-error="wrong" data-success="right">Helper text</span>
+
+        </form>
+
+    </section>
+
+{{!-- submit button --}}
+    <section class="row">
+
+        <article class="col xl12">
+
+            <button id="submit-button" class="btn waves-effect waves-light" type="submit" name="action">Submit
+            </button>
+
+        </article>
+
+    </section>
+
+</main>
