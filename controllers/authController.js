@@ -1,10 +1,10 @@
 const express = require('express');
 const router= express.Router();
 const db = require('../models');
-const bcrypt = require('bcrypt');
+// const bcrypt = require('bcrypt');
 
 // Parent Signup
-router.post('/signup', (req, res) => {
+router.post('/signup/parent', (req, res) => {
     db.Parent.create({
         first_name: req.body.parentFirst,
         last_name: req.body.parentLast,
@@ -29,7 +29,7 @@ router.post('/signup', (req, res) => {
 
 
 // Teacher Signup
-router.post('/signup', (req, res) => {
+router.post('/signup/teacher', (req, res) => {
     db.Teacher.create({
         first_name: req.body.teacherFirst,
         last_name: req.body.teacherLast,
@@ -49,7 +49,7 @@ router.post('/signup', (req, res) => {
 
 
 // Parent Login
-router.post('/login', (req, res) => {
+router.post('/login/parent', (req, res) => {
     db.Parent.findOne({
         where: { email: req.body.parentEmail }
     }).then(user => {
@@ -74,7 +74,7 @@ router.post('/login', (req, res) => {
 
 
 // Teacher Login
-router.post('/login', (req, res) => {
+router.post('/login/teacher', (req, res) => {
     db.Teacher.findOne({
         where: { email: req.body.teacherEmail }
     }).then(user => {
