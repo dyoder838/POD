@@ -33,7 +33,7 @@ module.exports = function (app) {
     });
 
     // DELETE route for Student
-    app.delete("/api/Student/:id", function (req, res) {
+    app.delete("/api/student/:id", function (req, res) {
         db.Student.destroy({
             where: {
                 id: req.params.id
@@ -47,18 +47,3 @@ module.exports = function (app) {
 
 }
 
-
-
-// sign up
-app.post("/api/signup", (req, res) => {
-    console.log(req.body);
-    db.User.create({
-        email: req.body.email,
-        password: req.body.password
-    })
-        .then(function () {
-            res.redirect(307, "/api/login");
-        })
-        .catch(function (err) {
-            console.log(err);
-            res.json(err)

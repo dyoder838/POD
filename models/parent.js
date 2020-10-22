@@ -30,12 +30,7 @@ module.exports = function(sequelize, DataTypes) {
       friday:{
           type: DataTypes.BOOLEAN
       },
-      saturday:{
-          type: DataTypes.BOOLEAN
-      },
-      sunday:{
-        type: DataTypes.BOOLEAN
-      },
+
        // password: DataTypes.STRING,
     });
 
