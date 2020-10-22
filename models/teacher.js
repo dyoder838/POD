@@ -1,11 +1,5 @@
 module.exports = function (sequelize, DataTypes) {
   var Teacher = sequelize.define("Teacher", {
-    id: {
-      type: DataTypes.INTEGER,
-      primaryKey: true,
-      autoIncrement: true,
-      allowNull: false
-    },
     first_name: {
       type: DataTypes.STRING,
       allowNull: false
@@ -19,7 +13,7 @@ module.exports = function (sequelize, DataTypes) {
       allowNull: false,
       unique: true
     },
-    
+
   });
   return Teacher;
 
