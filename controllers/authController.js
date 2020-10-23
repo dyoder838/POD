@@ -1,5 +1,5 @@
 const express = require('express');
-const router= express.Router();
+const router = express.Router();
 const db = require('../models');
 // const bcrypt = require('bcrypt');
 
@@ -15,26 +15,16 @@ router.post('/signup/parent', (req, res) => {
         tuesday: req.body.tuesday,
         wednesday: req.body.wednesday,
         thursday: req.body.thursday,
-        friday: req.body.friday, 
+        friday: req.body.friday,
     }).then(newUser => {
         req.session.user = {
             email: newUser.email,
             id: newUser.id
         }
-        res.redirect("/parent")
-    }).catch(err => {
-        console.log(err);
-        res.status(500).send("server error")
-    })
-})
-
-
-// Student Signup
-router.post('/signup/student', (req, res) => {
-    console.log(req.body)
-    db.Student.create({
-        first_name: req.body.studentFirst,
-        last_name: req.body.studentLast,
+        db.Pod.create({ ParentId: newUser.id })
+            .then(newPod => {
+                res.redirect("/parent")
+            })
     }).catch(err => {
         console.log(err);
         res.status(500).send("server error")
