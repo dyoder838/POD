@@ -1,54 +1,52 @@
 $(document).ready(function() {
- 
-    $("#createParent").on("submit",event=>{
-        event.preventDefault();
-        console.log('Parent created');
-        const parentObj = {
-            first_name: $("#parentFirst").val(),
-            last_name: $("#parentLast").val(),
-            email: $("#email").val(),
-            password: $("#password").val(),
-            monday: $("#monday").val(),
-            tuesday: $("#tuesday").val(),
-            wednesday: $("#wednesday").val(),
-            thursday: $("#thursday").val(),
-            friday: $("#friday").val()
-        }
-        console.log(parentObj)
-        $.ajax({
-            method:"POST",
-            url:"/api/parents",
-            data:parentObj
-        }).then(response=>{
-            console.log(response);
-            window.location.href= "/parent"
-        })
-    })
 
-    $("#createTeacher").on("submit",event=>{
+    $("#submit-button").on("click", function(event) {
+
+    })
+ 
+    $("#submit-button").on("click", function(event) {
         event.preventDefault();
-        console.log('Teacher created');
-        const teacherObj = {
-            first_name: $("#teacherFirst").val(),
-            last_name: $("#teacherLast").val(),
-            email: $("#email").val(),
-            password: $("#password").val(),
-            monday: $("#monday").val(),
-            tuesday: $("#tuesday").val(),
-            wednesday: $("#wednesday").val(),
-            thursday: $("#thursday").val(),
-            friday: $("#friday").val()
+      
+        const parentObject = {
+            parentFirst: $("#parentFirst").val(), 
+            parentLast: $("#parentLast").val(),
+            parentEmail: $("#parentEmail").val(),
+            parentPassword: $("#parentPassword").val(),
+            monday: $("#monday").is(":checked"), 
+            tuesday: $("#tuesday").is(":checked"),
+            wednesday: $("#wednesday").is(":checked"),
+            thursday: $("#thursday").is(":checked"),
+            friday: $("#friday").is(":checked")
         }
-        console.log(teacherObj)
+        
+        const studentObject = {
+            studentFirst: $("#studentFirst").val(),
+            studentLast: $("#studentLast").val(),
+        }
+        
+        // send parentObject
+        console.log(parentObject);
         $.ajax({
             method:"POST",
-            url:"/api/teachers",
-            data:teacherObj
-        }).then(response=>{
-            console.log(response);
-            window.location.href= "/teacher"
-        })
-    })
+            url: "/signup/parent",
+            data: parentObject
+        }).then(apiRes=>{
+            console.log(apiRes);
+            window.location.href = "/signup/parent"
+        });
+
+        // send studentObject
+        console.log(studentObject);
+        $.ajax({
+            method:"POST",
+            url:"/signup/student",
+            data: studentObject
+        }).then(apiRes=>{
+            console.log(apiRes);
+            window.location.href = "/signup/student"
+        });
+    
+    });
 
     $(".feature").click(function() {
         console.log($(this).text());

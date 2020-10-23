@@ -5,7 +5,7 @@ const db = require('../models');
 
 // Parent Signup
 router.post('/signup/parent', (req, res) => {
-    console.log(req.body)
+    console.log(req.body);
     db.Parent.create({
         first_name: req.body.parentFirst,
         last_name: req.body.parentLast,
