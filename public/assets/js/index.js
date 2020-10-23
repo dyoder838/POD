@@ -47,6 +47,26 @@ $(document).ready(function() {
         });
     
     });
+
+    $(".feature").click(function() {
+        console.log($(this).text());
+        $(".feature").removeClass("active")
+        for(var i=0;i<4;i++){
+            if($(this).data("f") === i){
+                $(this).addClass("active")
+                $(".feature-screenshot").attr("src","../assets/img/screenshot-"+i+".png")
+            }
+        }
+    });
+
+    
+    $("#loginButton").click(function(){
+        $("#loginDiv").removeClass("hide")
+    });
+
+    $("#close").click(function(){
+        $("#loginDiv").addClass("hide")
+    });
     
 });
   
