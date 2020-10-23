@@ -1,3 +1,22 @@
-body {
-    background: blue;
+h1{
+    margin-top:1rem;
+}
+
+img,.collection{
+    border-radius:12px;
+    margin-top: .5em
+}
+
+.spacing{
+    margin: 8em auto;
+}
+
+#loginDiv{
+    position: absolute;
+    left:0;
+    right:0;
+    display: flex;
+    align-items: center;
+    justify-content: center; 
+    text-align: left; 
 }
