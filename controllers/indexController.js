@@ -7,7 +7,11 @@ router.get('/',function(req,res){
 })
 
 router.get('/signup/parent',function(req,res){
-    res.render("signup",{});
+    res.render("parentsignup",{});
+})
+
+router.get('/signup/teacher',function(req,res){
+    res.render("teachersignup",{});
 })
 
 router.get('/parent',function(req,res){
