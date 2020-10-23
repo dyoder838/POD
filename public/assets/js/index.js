@@ -1,10 +1,4 @@
 $(document).ready(function() {
-<<<<<<< HEAD
-    $("#submit-button").on("click", function(event) {
-
-    })
-=======
->>>>>>> 0685a73fa87a98d3eccc0796835eaec134c2d362
  
 //-------------- parentsignup.handlebars code  ----------------------------------
 
