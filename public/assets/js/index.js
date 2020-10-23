@@ -1,5 +1,4 @@
 $(document).ready(function() {
-
     $("#submit-button").on("click", function(event) {
 
     })
@@ -59,14 +58,12 @@ $(document).ready(function() {
         }
     });
 
-    
     $("#loginButton").click(function(){
         $("#loginDiv").removeClass("hide")
     });
 
-    $("#close").click(function(){
+    $(".close").click(function(){
         $("#loginDiv").addClass("hide")
-    });
-    
+    });    
 });
   
