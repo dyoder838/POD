@@ -1,12 +1,11 @@
 $(document).ready(function() {
-
-    $("#submit-button").on("click", function(event) {
-
-    })
  
-    $("#submit-button").on("click", function(event) {
+//-------------- parentsignup.handlebars code  ----------------------------------
+
+    $("#parent-submit-button").on("click", function(event) {
         event.preventDefault();
       
+        // Define parentObject to send to authController
         const parentObject = {
             parentFirst: $("#parentFirst").val(), 
             parentLast: $("#parentLast").val(),
@@ -19,12 +18,13 @@ $(document).ready(function() {
             friday: $("#friday").is(":checked")
         }
         
+        // Define studentObject to send to authController
         const studentObject = {
             studentFirst: $("#studentFirst").val(),
             studentLast: $("#studentLast").val(),
         }
         
-        // send parentObject
+        // Post parentObject request -> authController
         console.log(parentObject);
         $.ajax({
             method:"POST",
@@ -35,7 +35,7 @@ $(document).ready(function() {
             window.location.href = "/signup/parent"
         });
 
-        // send studentObject
+        // Post studentObject request -> authController
         console.log(studentObject);
         $.ajax({
             method:"POST",
@@ -48,6 +48,32 @@ $(document).ready(function() {
     
     });
 
+// --------------- teachersignup.handlebars code ----------------------------
+
+    $("#teacher-submit-button").on("click", function(event) {
+        event.preventDefault();
+
+        // Define teacherObject to send to authController
+        const teacherObject = {
+        teacherFirst: $("#teacherFirst").val(), 
+        teacherLast: $("#teacherLast").val(),
+        teacherEmail: $("#teacherEmail").val(),
+        teacherPassword: $("#teacherPassword").val()
+        }
+
+        // Post teacherObject request -> authController
+        console.log(teacherObject);
+        $.ajax({
+            method:"POST",
+            url:"/signup/teacher",
+            data: teacherObject
+        }).then(apiRes=>{
+            console.log(apiRes);
+            window.location.href = "/signup/teacher"
+        });
+    });
+
+//--------------------- ?-----------------------------------------------------
     $(".feature").click(function() {
         console.log($(this).text());
         $(".feature").removeClass("active")
