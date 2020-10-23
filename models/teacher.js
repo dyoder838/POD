@@ -24,4 +24,3 @@ module.exports = function (sequelize, DataTypes) {
   return Teacher;
 
 };
-//  Needs to have password field & bcrypt! 

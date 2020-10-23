@@ -35,7 +35,7 @@ module.exports = function(sequelize, DataTypes) {
     });
 
     Parent.associate=function(models){
-      Parent.belongsTo(models.Pod)
+      Parent.hasOne(models.Pod, {foreignKey: {allowNull:true}})
     }; 
 
   Parent.beforeCreate(function(parent){
@@ -43,4 +43,3 @@ module.exports = function(sequelize, DataTypes) {
 })
     return Parent;
   };
-//  Needs to have password field & bcrypt! 
