@@ -97,7 +97,7 @@ router.post('/login/teacher', (req, res) => {
             req.session.destroy();
             return res.status(401).send('incorrect email or password')
 
-        } else if (bcrypt.compareSync(req.body.password, user.password)) {
+        } else if (bcrypt.compareSync(req.body.teacherPassword, user.password)) {
             req.session.user = {
                 email: user.email,
                 id: user.id
