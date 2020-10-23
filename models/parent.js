@@ -1,4 +1,4 @@
-// const bcrypt = require("bcrypt");
+const bcrypt = require("bcrypt");
 
 module.exports = function(sequelize, DataTypes) {
     var Parent = sequelize.define("Parent", {
@@ -31,16 +31,16 @@ module.exports = function(sequelize, DataTypes) {
           type: DataTypes.BOOLEAN
       },
 
-       // password: DataTypes.STRING,
+       password: DataTypes.STRING,
     });
 
     Parent.associate=function(models){
       Parent.belongsTo(models.Pod)
     }; 
 
-//   Parent.beforeCreate(function(parent){
-//     parent.password = bcrypt.hashSync(parent.password, bcrypt.genSaltSync(10),null);
-// })
+  Parent.beforeCreate(function(parent){
+    parent.password = bcrypt.hashSync(parent.password, bcrypt.genSaltSync(10),null);
+})
     return Parent;
   };
 //  Needs to have password field & bcrypt! 

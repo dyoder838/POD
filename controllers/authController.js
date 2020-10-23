@@ -1,7 +1,7 @@
 const express = require('express');
 const router= express.Router();
 const db = require('../models');
-// const bcrypt = require('bcrypt');
+const bcrypt = require('bcrypt');
 
 // Parent Signup
 router.post('/signup/parent', (req, res) => {
@@ -72,7 +72,7 @@ router.post('/login/parent', (req, res) => {
             req.session.destroy();
             return res.status(401).send('incorrect email or password')
 
-        } else if (bcrypt.compareSync(req.body.password, user.password)) {
+        } else if (bcrypt.compareSync(req.body.parentPassword, user.password)) {
             req.session.user = {
                 email: user.email,
                 id: user.id
