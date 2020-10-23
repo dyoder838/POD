@@ -1,0 +1,174 @@
+<main class="container">
+
+    {{!-- parent table data source --}}
+    {{!-- parent first name, last name, email, password  --}}
+    <section class="row">
+
+        <article class="col xl12">
+            <h3>Here you create your Profile </h3>
+            <h5>Your email will be your user name</h5>
+        </article>
+
+    </section>
+
+    {{!-- parent field --}}
+    <section id="parent-section-row" class="row">
+
+        <article class="col xl12">
+
+            <form class="row">
+
+                <div class="input-field col xl3">
+
+                    <input id="parentFirst" type="text" class="validate">
+                    <label for="parentFirst">First Name</label>
+                    <span class="helper-text" data-error="wrong" data-success="right"></span>
+
+                </div>
+
+                <div class="input-field col xl3">
+
+                    <input id="parentLast" type="text" class="validate">
+                    <label for="parentLast">Last Name</label>
+                    <span class="helper-text" data-error="wrong" data-success="right"></span>
+
+                </div>
+
+                <div class="input-field col xl3">
+
+                    <input id="parentEmail" type="email" class="validate">
+                    <label for="parentEmail">Email</label>
+                    <span class="helper-text" data-error="wrong" data-success="right"></span>
+
+                </div>
+
+                <div class="input-field col xl3">
+
+                    <input id="parentPassword" type="password" class="validate">
+                    <label for="parentPassword">Password</label>
+                    <span class="helper-text" data-error="wrong" data-success="right"></span>
+
+                </div>
+
+            </form>
+
+        </article>
+
+    </section>
+
+    <!-- pod table creation -->
+    <!-- day selectors -->
+    <section class="row">
+
+        <article class="col xl12">
+
+            <h3>If you are available to help other students with their school work, which days would you be able to
+                help?
+            </h3>
+            <ul>
+
+                <li>
+                    <h5>Selecting a day will create a "POD" that you are in charge of for that day</h5>
+                </li>
+                <li>
+                    <h5>Other parents will be able to add their children to your POD, up to 5 children</h5>
+                </li>
+                <li>
+                    <h5>Other parents will contact you via your email to arrange logistics</h5>
+                </li>
+
+            </ul>
+
+        </article>
+
+    </section>
+
+    <section class="row">
+
+        <form id="parent-day-checkbox-form" class="col xl12">
+
+            <p>
+                <label>
+                    <input type="checkbox" id="monday" name="monday" />
+                    <span>Monday</span>
+                </label>
+            </p>
+
+            <p>
+                <label>
+                    <input id="tuesday" type="checkbox" name="tuesday"/>
+                    <span>Tuesday</span>
+                </label>
+            </p>
+            <p>
+                <label>
+                    <input id="wednesday" type="checkbox" name="wednesday" />
+                    <span>Wednesday</span>
+                </label>
+            </p>
+            <p>
+                <label>
+                    <input id="thursday" type="checkbox" name="thursday" />
+                    <span>Thursday</span>
+                </label>
+            </p>
+            <p>
+                <label>
+                    <input id="friday" type="checkbox" name="friday" />
+                    <span>Friday</span>
+                </label>
+            </p>
+
+        </form>
+
+    </section>
+
+    <!-- student table creation  -->
+    <section class="row">
+
+        <article class="col xl12">
+            <h3>What is your child's name?</h3>
+        </article>
+
+    </section>
+    <section id="student-section-row" class="row">
+
+        <article class="col xl12">
+
+            <form class="row">
+
+                <div class="input-field col xl6">
+
+                    <input id="studentFirst" type="text" class="validate">
+                    <label for="studentFirst">First Name</label>
+                    <span class="helper-text" data-error="wrong" data-success="right"></span>
+
+                </div>
+
+                <div class="input-field col xl6">
+
+                    <input id="studentLast" type="text" class="validate">
+                    <label for="studentLast">Last Name</label>
+                    <span class="helper-text" data-error="wrong" data-success="right"></span>
+
+                </div>
+
+            </form>
+
+        </article>
+
+    </section>
+
+    {{!-- submit button --}}
+    <section class="row">
+
+        <article class="col xl12">
+
+            <button id="parent-submit-button" class="btn waves-effect waves-light" type="submit" name="action">Submit
+            </button>
+
+        </article>
+
+    </section>
+
+</main>

@@ -1,6 +1,7 @@
 // Express App
 const express = require("express");
 const app = express();
+const session = require("express-session");
 app.use(express.urlencoded({ extended: true }));
 app.use(express.json());
 app.use(express.static("public"));
@@ -9,6 +10,15 @@ app.use(express.static("public"));
 const exphbs = require("express-handlebars");
 app.engine("handlebars", exphbs({ defaultLayout: "main" }));
 app.set("view engine", "handlebars");
+
+app.use(session({
+    secret: "anything",
+    resave: false,
+    saveUninitialized: true,
+    cookie: {
+        maxAge: 2 * 60 * 60 * 1000
+    }
+}))
 
 // Controllers
 const indexController = require("./controllers/indexController");
