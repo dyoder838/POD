@@ -7,7 +7,10 @@ router.post('/signup/student', (req, res) => {
     db.Student.create({
         first_name: req.body.studentFirst,
         last_name: req.body.studentLast,
-    }).catch(err => {
+    }).then(function(student){
+        student.addPod(req.body.StudentId)
+    })
+    .catch(err => {
         console.log(err);
         res.status(500).send("server error")
     })

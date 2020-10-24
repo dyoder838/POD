@@ -2,15 +2,15 @@ const express = require('express');
 const router= express.Router();
 const db = require('../models');
 
-// GET route for ALL STUDENTS
-router.get("/", function (req, res) {
+// GET route for ALL STUDENTS -- draft
+router.get("/api/students", function (req, res) {
     db.Student.findAll({})
         .then(function (dbStudent) {
             res.json(dbStudent);
         });
 });
 
-// GET route for SINGLE STUDENTS
+// GET route for SINGLE STUDENTS -- draft
 router.get("/:id", function (req, res) {
     db.Student.findOne({
         where: {
@@ -21,17 +21,9 @@ router.get("/:id", function (req, res) {
     });
 });
 
-// POST route for saving NEW STUDENT
-router.post("/", function (req, res) {
-    db.Student.create({
-        first_name: req.body.first_name,
-        last_name: req.body.last_name
-    }).then(function (dbStudent) {
-        res.json(dbStudent);
-    });
-});
 
-// DELETE route for Student
+
+// DELETE route for Student -- draft
 router.delete("/:id", function (req, res) {
     db.Student.destroy({
         where: {
