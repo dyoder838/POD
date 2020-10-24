@@ -22,20 +22,20 @@ app.use(session({
 
 // Controllers
 const indexController = require("./controllers/indexController");
-const studentController = require("./controllers/studentController");
+// const studentController = require("./controllers/studentController");
 const authController = require("./controllers/authController");
-// const podController = require("./controllers/podController");
+const podController = require("./controllers/podController");
 app.use(indexController);
-app.use("/api/students",studentController);
+// app.use("/api/students",studentController);
 app.use(authController);
-// app.use("/api/pods",podController);
+app.use(podController);
 
 // Databse Models  
 const db = require("./models");
 const PORT = process.env.PORT || 8080;
 
 // Start App
-db.sequelize.sync({ force: true }).then(() => {
+db.sequelize.sync({ force: false }).then(() => {
     app.listen(PORT, () => {
     console.log("App listening on PORT " + PORT);
     });
