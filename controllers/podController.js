@@ -1,5 +1,6 @@
-const db = require("../models");
-const router = require("./authController");
+const express = require('express');
+const router = express.Router();
+const db = require('../models');
 
 // Student Signup
 router.post('/signup/student', (req, res) => {

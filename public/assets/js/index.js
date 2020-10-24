@@ -75,7 +75,7 @@ $(document).ready(function () {
 
     // --------------------Teacher's View -----------------------------------------
     
-    // From podController - find all available pods !!! podController is adjusted as api in server js
+    // FIXME: From podController - find all available pods !!! podController is adjusted as api in server js
     $.ajax({
         method: "GET",
         url: "/pods",
