@@ -2,6 +2,9 @@
 const express = require("express");
 const app = express();
 const session = require("express-session");
+const db = require("./models");
+const PORT = process.env.PORT || 8080;
+
 app.use(express.urlencoded({ extended: true }));
 app.use(express.json());
 app.use(express.static("public"));
@@ -22,18 +25,30 @@ app.use(session({
 
 // Controllers
 const indexController = require("./controllers/indexController");
+<<<<<<< HEAD
 const authController = require("./controllers/authController");
 const podController = require("./controllers/podController");
 app.use(indexController);
 app.use(authController);
 app.use(podController);
+=======
+// const studentController = require("./controllers/studentController");
+const authController = require("./controllers/authController");
+const podController = require("./controllers/podController");
+app.use(indexController);
+// app.use("/api/students",studentController);
+app.use(authController);
+app.use(podController);
+// FIXME: I crash the server: 
+    //TypeError: app.use() requires a middleware function
+    //at Function.use (C:\Users\yoder\Git_Projects\POD\node_modules\express\lib\application.js:210:11)
+    //at Object.<anonymous> (C:\Users\yoder\Git_Projects\POD\server.js:31:5)
+>>>>>>> 39392817e80091b80c477876d15602213e31ae87
 
 // Databse Models  
-const db = require("./models");
-const PORT = process.env.PORT || 8080;
 
 // Start App
-db.sequelize.sync({ force: true }).then(() => {
+db.sequelize.sync({ force: false }).then(() => {
     app.listen(PORT, () => {
     console.log("App listening on PORT " + PORT);
     });
