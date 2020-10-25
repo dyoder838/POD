@@ -24,11 +24,11 @@ app.use(session({
 const indexController = require("./controllers/indexController");
 const studentController = require("./controllers/studentController");
 const authController = require("./controllers/authController");
-// const podController = require("./controllers/podController");
+const podController = require("./controllers/podController");
 app.use(indexController);
 app.use("/api/students",studentController);
 app.use(authController);
-// app.use("/api/pods",podController);
+app.use("/api/pods",podController);
 
 // Databse Models  
 const db = require("./models");

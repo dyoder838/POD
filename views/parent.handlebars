@@ -48,15 +48,14 @@
         </section>
         <section class="col s12 m12 l9">
             <div class="row">
-                {{#each user.Parents}}
+                {{#each Pods}}
                 <div class="col s12 m6">
                     <div class="card">
                         <div class="card-content">
-                            {{first_name}}
                             <h4 class="podParent">{{first_name}} {{last_name}}</h4>
                             <h5>Students</h5>
                             <ul>
-                                {{#each user.Students}}
+                                {{#each Students}}
                                 <li>{{first_name}} {{last_name}}</li>
                                 {{/each}}
                             </ul>

@@ -73,7 +73,27 @@ $(document).ready(function() {
         });
     });
 
-//--------------------- ?-----------------------------------------------------
+// --------------- student sign up code ----------------------------
+
+    $("#createStudentForm").on("submit",event=>{
+        event.preventDefault();
+        console.log('Student submitted!');
+        const studentObj = {
+            studentFirst: $("#studentFirst").val(),
+            studentLast: $("#studentLast").val()
+        }
+        console.log(studentObj)
+        $.ajax({
+            method:"POST",
+            url:"/signup/student",
+            data:studentObj
+        }).then(apiRes=>{
+            console.log(apiRes);
+            window.location.href= "/parent"
+        })
+    })
+
+//--------------------------------------------------------------------------
     $(".feature").click(function() {
         console.log($(this).text());
         $(".feature").removeClass("active")

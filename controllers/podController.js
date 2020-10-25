@@ -16,15 +16,21 @@ router.post('/signup/student', (req, res) => {
     })
 })
 
+router.get("/api/pods", (req, res) => {
+    db.Pod.findAll().then(pods => {
+        res.json(pods)
+    })
+})
+
 // Find ALL available PODS
-router.get("/pods",(req,res)=>{
+router.get("/parents",(req,res)=>{
     db.Pod.findAll({
         include: [db.Parent,db.Student]
     }).then(pods=>{
         const podsJson=pods.map(pod=>pod.toJSON());
         console.log(podsJson)
-        res.render("parentview",podsJson);
+        res.render("parent",podsJson);
     })
 })
 
-module.export = router;
+module.exports = router;

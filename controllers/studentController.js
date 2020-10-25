@@ -21,8 +21,6 @@ router.get("/:id", function (req, res) {
     });
 });
 
-
-
 // DELETE route for Student -- draft
 router.delete("/:id", function (req, res) {
     db.Student.destroy({
