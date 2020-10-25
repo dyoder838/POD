@@ -23,7 +23,7 @@ router.get("/api/pods", (req, res) => {
 })
 
 // Find ALL available PODS
-router.get("/parents",(req,res)=>{
+router.get("/parent",(req,res)=>{
     db.Pod.findAll({
         include: [db.Parent,db.Student]
     }).then(pods=>{

@@ -19,12 +19,4 @@ router.get("/parent",(req,res)=>{
     })
 })
 
-router.get("/signup/student", (req, res) => {
-    if (req.session.user) {
-        res.render("parent", { user: req.session.user })
-    } else {
-        res.redirect("/login")
-    }
-})
-
 module.exports = router
