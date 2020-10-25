@@ -78,13 +78,13 @@ $(document).ready(function () {
     // FIXME: From podController - find all available pods !!! podController is adjusted as api in server js
     $.ajax({
         method: "GET",
-        url: "/pods",
+        url: "/api/teacher/view",
     }).then(apiRes => {
         console.log("response from /pods for teacher view ", apiRes);
         window.location.href = "/teacher"
     });
 
-    //--------------------- ?-----------------------------------------------------
+    //--------------------- tabs through screenshots on home page -----------------------------------------------------
     $(".feature").click(function () {
         console.log($(this).text());
         $(".feature").removeClass("active")
@@ -95,7 +95,7 @@ $(document).ready(function () {
             }
         }
     });
-
+    // ----------- makes login buttons work
     $("#loginButton").click(function () {
         $("#loginDiv").removeClass("hide")
     });

@@ -51,8 +51,22 @@ router.post('/signup/teacher', (req, res) => {
     })
 })
 
+// Student Signup
+router.post('/signup/student', (req, res) => {
+    console.log(req.body)
+    db.Student.create({
+        first_name: req.body.studentFirst,
+        last_name: req.body.studentLast,
+    }).then(function(student){
+        student.addPod(req.body.StudentId)
+    })
+    .catch(err => {
+        console.log(err);
+        res.status(500).send("server error")
+    })
+})
 
-// Parent Login
+// Parent Login - called from the HTML Element directly 
 router.post('/login/parent', (req, res) => {
     db.Parent.findOne({
         where: { email: req.body.parentEmail }
@@ -77,7 +91,7 @@ router.post('/login/parent', (req, res) => {
 })
 
 
-// Teacher Login
+// Teacher Login -called from the HTML Element directly 
 router.post('/login/teacher', (req, res) => {
     db.Teacher.findOne({
         where: { email: req.body.teacherEmail }
