@@ -73,26 +73,26 @@ $(document).ready(function () {
         });
     });
 
-    // --------------------Teacher's View -----------------------------------------
-    
-    // FIXME: From podController - find all available pods !!! podController is adjusted as api in server js
-    $.ajax({
-        method: "GET",
-        url: "/teacher/view",
-    }).then(apiRes => {
-        console.log("response from /pods for teacher view ", apiRes);
-        window.location.href = "/teacher"
-    });
+    // ---------------Student Creation----------------------------
+    $("#createStudentForm").on("submit",event=>{
+        event.preventDefault();
+        console.log('Student submitted!');
+        const studentObj = {
+            studentFirst: $("#studentFirst").val(),
+            studentLast: $("#studentLast").val(),
+            StudentId: $("#StudentId").val()
+        }
+        console.log(studentObj)
+        $.ajax({
+            method:"POST",
+            url:"/signup/student",
+            data:studentObj
+        }).then(apiRes=>{
+            console.log(apiRes);
+            window.location.href= "/parent"
+        })
+    })
 
-
-    //------------------ Parent's view -----------------------------------------------
-    $.ajax({
-        method: "GET",
-        url: "/parent/view",
-    }).then(apiRes => {
-        console.log("response from /pods for teacher view ", apiRes);
-        window.location.href = "/parent"
-    });
     //--------------------- tabs through screenshots on home page -----------------------------------------------------
     $(".feature").click(function () {
         console.log($(this).text());
@@ -104,6 +104,7 @@ $(document).ready(function () {
             }
         }
     });
+
     // ----------- makes login buttons work
     $("#loginButton").click(function () {
         $("#loginDiv").removeClass("hide")

@@ -1,26 +1,18 @@
 <div class="container spacing">
     <div class="row">
-        <section class="col s12 m12 l3">
-            <div class="row">
+        <section class="col s12 m12 l3 ">
+            <div>
                 <h5>Children</h5>
-                <form id="parent-day-checkbox-form" class="col xl12">
-                    <p>
-                        <label>
-                            <input type="checkbox" id="lananada" name="lananada" />
-                            <span>Lana Nada</span>
-                        </label>
-                    </p>
-                    <p>
-                        <label>
-                            <input type="checkbox" id="hananada" name="hananada" />
-                            <span>Hana Nada</span>
-                        </label>
-                    </p>
+                <form id="createStudentForm">
+                    <input type="text" id="studentFirst" placeholder="First Name">
+                    <input type="text" id="studentLast" placeholder="Last Name">
+                    <input type="text" id="StudentId" placeholder="POD ID">
+                    <input class="btn" type="submit" value="Add">
                 </form>
             </div>
-            <div class="row">
+            <div class="spacing">
                 <h5>Availability</h5>
-                <form id="parent-day-checkbox-form" class="col xl12">
+                <form id="parent-day-checkbox-form">
                     <p>
                         <label>
                             <input type="checkbox" id="monday" name="monday" />
@@ -56,33 +48,21 @@
         </section>
         <section class="col s12 m12 l9">
             <div class="row">
-                <div class="col s12">
-                    <h3>Monday</h3>
-                </div>
-            </div>
-            <div class="row">
-                <div class="col s12 m6">
+                {{#each parent}}
+                <div class="col s12 m12">
                     <div class="card">
                         <div class="card-content">
-                            <h4 class="podParent">Mahitab Abdelsalam</h4>
+                            <h4 class="podParent"><span>{{Parent.id}} -</span> {{Parent.first_name}} {{Parent.last_name}}</h4>
                             <h5>Students</h5>
                             <ul>
-                                <li>Alex John</li>
-                                <li>Joanna Smith</li>
-                                <li>Danuel Rondo</li>
+                                {{#each Students}}
+                                <li>{{first_name}} {{last_name}}</li>
+                                {{/each}}
                             </ul>
-                            <label>Select Child</label>
-                            <select class="browser-default">
-                                <option value="" disabled selected> Choose your option</option>
-                                <option value="Lana Nada">Lana Nada</option>
-                                <option value="Hana Nada">Hana Nada</option>
-                            </select>
-                        </div>
-                        <div class="card-action">
-                            <a href="#">Contact</a>
                         </div>
                     </div>
                 </div>
+                {{/each}}
             </div>
         </section>
     </div>
