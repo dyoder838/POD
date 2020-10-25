@@ -25,13 +25,6 @@ app.use(session({
 
 // Controllers
 const indexController = require("./controllers/indexController");
-<<<<<<< HEAD
-const authController = require("./controllers/authController");
-const podController = require("./controllers/podController");
-app.use(indexController);
-app.use(authController);
-app.use(podController);
-=======
 // const studentController = require("./controllers/studentController");
 const authController = require("./controllers/authController");
 const podController = require("./controllers/podController");
@@ -43,7 +36,6 @@ app.use(podController);
     //TypeError: app.use() requires a middleware function
     //at Function.use (C:\Users\yoder\Git_Projects\POD\node_modules\express\lib\application.js:210:11)
     //at Object.<anonymous> (C:\Users\yoder\Git_Projects\POD\server.js:31:5)
->>>>>>> 39392817e80091b80c477876d15602213e31ae87
 
 // Databse Models  
 

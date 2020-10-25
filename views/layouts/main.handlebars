@@ -17,11 +17,11 @@
                 <div class="container">
                     <a href="/" class="brand-logo">PODS</a>
                     <ul id="nav-mobile" class="right hide-on-med-and-down">
-                        {{#if user}}
-                        <li>{{user.email}}</li>
+                        {{#if parent}}
+                        <li>{{Parent.email}}</li>
                         <li><a class="btn" href="/logout">logout</a></li>
                         {{/if}}
-                        {{#unless user}}
+                        {{#unless parent}}
                         <li><a class="btn" id="loginButton">Login</a></li>
                         {{/unless}}
                     </ul>

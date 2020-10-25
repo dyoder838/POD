@@ -1,7 +1,7 @@
 <div class="container spacing">
     <div class="row">
-        <section class="col s12 m12 l3">
-            <div class="row">
+        <section class="col s12 m12 l3 ">
+            <div>
                 <h5>Children</h5>
                 <form id="createStudentForm">
                     <input type="text" id="studentFirst" placeholder="First Name">
@@ -10,7 +10,7 @@
                     <input class="btn" type="submit" value="Add">
                 </form>
             </div>
-            <div class="row">
+            <div class="spacing">
                 <h5>Availability</h5>
                 <form id="parent-day-checkbox-form">
                     <p>
@@ -48,11 +48,11 @@
         </section>
         <section class="col s12 m12 l9">
             <div class="row">
-                {{#each Pods}}
-                <div class="col s12 m6">
+                {{#each parent}}
+                <div class="col s12 m12">
                     <div class="card">
                         <div class="card-content">
-                            <h4 class="podParent">{{first_name}} {{last_name}}</h4>
+                            <h4 class="podParent"><span>{{Parent.id}} -</span> {{Parent.first_name}} {{Parent.last_name}}</h4>
                             <h5>Students</h5>
                             <ul>
                                 {{#each Students}}

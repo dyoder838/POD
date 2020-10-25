@@ -79,7 +79,8 @@ $(document).ready(function () {
         console.log('Student submitted!');
         const studentObj = {
             studentFirst: $("#studentFirst").val(),
-            studentLast: $("#studentLast").val()
+            studentLast: $("#studentLast").val(),
+            StudentId: $("#StudentId").val()
         }
         console.log(studentObj)
         $.ajax({
@@ -91,25 +92,6 @@ $(document).ready(function () {
             window.location.href= "/parent"
         })
     })
-
-    // --------------------Teacher's View -----------------------------------------
-    // FIXME: From podController - find all available pods !!! podController is adjusted as api in server js
-    $.ajax({
-        method: "GET",
-        url: "/teacher/view",
-    }).then(apiRes => {
-        console.log("response from /pods for teacher view ", apiRes);
-        window.location.href = "/teacher"
-    });
-
-    //------------------ Parent's view -----------------------------------------------
-    $.ajax({
-        method: "GET",
-        url: "/parent/view",
-    }).then(apiRes => {
-        console.log("response from /pods for teacher view ", apiRes);
-        window.location.href = "/parent"
-    });
 
     //--------------------- tabs through screenshots on home page -----------------------------------------------------
     $(".feature").click(function () {
