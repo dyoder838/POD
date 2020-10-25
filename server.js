@@ -31,7 +31,7 @@ const podController = require("./controllers/podController");
 app.use(indexController);
 // app.use("/api/students",studentController);
 app.use(authController);
-app.use("/api", podController);
+app.use(podController);
 // FIXME: I crash the server: 
     //TypeError: app.use() requires a middleware function
     //at Function.use (C:\Users\yoder\Git_Projects\POD\node_modules\express\lib\application.js:210:11)

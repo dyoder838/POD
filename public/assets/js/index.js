@@ -78,12 +78,21 @@ $(document).ready(function () {
     // FIXME: From podController - find all available pods !!! podController is adjusted as api in server js
     $.ajax({
         method: "GET",
-        url: "/api/teacher/view",
+        url: "/teacher/view",
     }).then(apiRes => {
         console.log("response from /pods for teacher view ", apiRes);
         window.location.href = "/teacher"
     });
 
+
+    //------------------ Parent's view -----------------------------------------------
+    $.ajax({
+        method: "GET",
+        url: "/parent/view",
+    }).then(apiRes => {
+        console.log("response from /pods for teacher view ", apiRes);
+        window.location.href = "/parent"
+    });
     //--------------------- tabs through screenshots on home page -----------------------------------------------------
     $(".feature").click(function () {
         console.log($(this).text());
