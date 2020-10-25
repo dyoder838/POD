@@ -5,7 +5,7 @@ const db = require('../models');
 
  
 // Find ALL available PODS for teachers
-router.get("teacher/view",(req,res)=>{
+router.get("/teacher/view",(req,res)=>{
     db.Pod.findAll({
         include: [db.Parent,db.Student]
     }).then(pods=>{
@@ -17,7 +17,7 @@ router.get("teacher/view",(req,res)=>{
     })
 })
 // Find ALL available PODS for parents
-router.get("parent/view",(req,res)=>{
+router.get("/parent/view",(req,res)=>{
     db.Pod.findAll({
         include: [db.Parent,db.Student]
     }).then(pods=>{
