@@ -53,6 +53,13 @@
                     <div class="card">
                         <div class="card-content">
                             <h4 class="podParent"><span>{{Parent.id}} -</span> {{Parent.first_name}} {{Parent.last_name}}</h4>
+                            <ul>
+                                <li>Monday: {{Parent.monday}}</li>
+                                <li>Tuesday: {{Parent.tuesday}}</li>
+                                <li>Wednesday: {{Parent.wednesday}}</li>
+                                <li>Thursday: {{Parent.thursday}}</li>
+                                <li>Friday: {{Parent.friday}}</li>
+                            </ul>
                             <h5>Students</h5>
                             <ul>
                                 {{#each Students}}
