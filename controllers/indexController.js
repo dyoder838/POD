@@ -15,7 +15,12 @@ router.get("/parent",(req,res)=>{
     }).then(pods=>{
         const podsJson=pods.map(pod=>pod.toJSON());
         console.log(podsJson)
-        res.render("parent",{parent: podsJson});
+        const hbsObj = {
+            user: req.session.user,
+            parent: podsJson
+        }
+        console.log(hbsObj)
+        res.render("parent", hbsObj);
     })
 })
 
@@ -25,7 +30,11 @@ router.get("/teacher",(req,res)=>{
     }).then(pods=>{
         const podsJson=pods.map(pod=>pod.toJSON());
         console.log(podsJson)
-        res.render("teacher",{teacher: podsJson});
+        const hbsObj = {
+            user: req.session.user,
+            teacher: podsJson
+        }
+        res.render("teacher", hbsObj);
     })
 })
 

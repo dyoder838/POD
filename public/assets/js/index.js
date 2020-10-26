@@ -32,7 +32,7 @@ $(document).ready(function () {
             data: parentObject
         }).then(apiRes => {
             console.log(apiRes);
-            window.location.href = "/signup/parent"
+            window.location.href = "/parent"
         });
 
         // Post studentObject request -> authController
@@ -43,7 +43,7 @@ $(document).ready(function () {
             data: studentObject
         }).then(apiRes => {
             console.log(apiRes);
-            window.location.href = "/signup/student"
+            window.location.href = "/parent"
         });
 
     });
@@ -69,7 +69,7 @@ $(document).ready(function () {
             data: teacherObject
         }).then(apiRes => {
             console.log(apiRes);
-            window.location.href = "/signup/teacher"
+            window.location.href = "/teacher"
         });
     });
 

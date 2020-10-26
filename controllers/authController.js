@@ -119,7 +119,7 @@ router.post('/login/teacher', (req, res) => {
 // Logout 
 router.get('/logout', (req, res) => {
     req.session.destroy();
-    res.redirect("/login")
+    res.redirect("/")
 })
 
 // Session 
