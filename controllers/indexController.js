@@ -24,6 +24,10 @@ router.get("/parent",(req,res)=>{
     })
 })
 
+router.get('/signup/teacher',function(req,res){
+    res.render("teachersignup",{ user: req.session.user });
+})
+
 router.get("/teacher",(req,res)=>{
     db.Pod.findAll({
         include: [db.Parent,db.Student]
