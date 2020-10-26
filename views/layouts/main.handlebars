@@ -18,7 +18,7 @@
                             <a href="/" class="logo left">PODS</a>
                             <ul id="nav-mobile" class="right">
                                 {{#if user}}
-                                <li>{{user.email}}</li>
+                                <li><a href="/parent">{{user.email}}</a></li>
                                 <li><a class="btn" href="/logout">logout</a></li>
                                 {{/if}}
                                 {{#unless user}}
