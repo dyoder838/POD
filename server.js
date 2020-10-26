@@ -5,8 +5,11 @@ const session = require("express-session");
 const db = require("./models");
 const PORT = process.env.PORT || 8080;
 
+// Sets up the Express app to handle data parsing
 app.use(express.urlencoded({ extended: true }));
 app.use(express.json());
+
+// Static directory
 app.use(express.static("public"));
 
 // Handlebars
@@ -14,6 +17,7 @@ const exphbs = require("express-handlebars");
 app.engine("handlebars", exphbs({ defaultLayout: "main" }));
 app.set("view engine", "handlebars");
 
+// Session secret
 app.use(session({
     secret: "anything",
     resave: false,
