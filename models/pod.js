@@ -5,9 +5,8 @@ module.exports = function(sequelize, DataTypes) {
     Pod.belongsTo(models.Parent, {foreignKey: {allowNull:true}}
         // onDelete:  "cascade"
     )
-}
-return Pod;
-
+    }
+    return Pod;
   };
   
 

@@ -1,10 +1,8 @@
 $(document).ready(function () {
-
-    //-------------- parentsignup.handlebars code  ----------------------------------
-
+    
+    // Parent Sign up
     $("#parent-submit-button").on("click", function (event) {
         event.preventDefault();
-
         // Define parentObject to send to authController
         const parentObject = {
             parentFirst: $("#parentFirst").val(),
@@ -17,13 +15,6 @@ $(document).ready(function () {
             thursday: $("#thursday").is(":checked"),
             friday: $("#friday").is(":checked")
         }
-
-        // Define studentObject to send to authController
-        const studentObject = {
-            studentFirst: $("#studentFirst").val(),
-            studentLast: $("#studentLast").val(),
-        }
-
         // Post parentObject request -> authController
         console.log(parentObject);
         $.ajax({
@@ -34,25 +25,11 @@ $(document).ready(function () {
             console.log(apiRes);
             window.location.href = "/parent"
         });
-
-        // Post studentObject request -> authController
-        console.log(studentObject);
-        $.ajax({
-            method: "POST",
-            url: "/signup/student",
-            data: studentObject
-        }).then(apiRes => {
-            console.log(apiRes);
-            window.location.href = "/parent"
-        });
-
     });
 
-    // --------------- teachersignup.handlebars code ----------------------------
-
+    // Teacher Signup
     $("#teacher-submit-button").on("click", function (event) {
         event.preventDefault();
-
         // Define teacherObject to send to authController
         const teacherObject = {
             teacherFirst: $("#teacherFirst").val(),
@@ -60,7 +37,6 @@ $(document).ready(function () {
             teacherEmail: $("#teacherEmail").val(),
             teacherPassword: $("#teacherPassword").val()
         }
-
         // Post teacherObject request -> authController
         console.log(teacherObject);
         $.ajax({
@@ -73,10 +49,9 @@ $(document).ready(function () {
         });
     });
 
-    // ---------------Student Creation----------------------------
+    // Add Student
     $("#createStudentForm").on("submit",event=>{
         event.preventDefault();
-        console.log('Student submitted!');
         const studentObj = {
             studentFirst: $("#studentFirst").val(),
             studentLast: $("#studentLast").val(),
@@ -93,24 +68,27 @@ $(document).ready(function () {
         })
     })
 
-    //--------------------- tabs through screenshots on home page -----------------------------------------------------
+    // Tab through feature screenshots
     $(".feature").click(function () {
         console.log($(this).text());
         $(".feature").removeClass("active")
         for (var i = 0; i < 4; i++) {
-            if ($(this).data("f") === i) {
+            if ($(this).data("feature") === i) {
                 $(this).addClass("active")
                 $(".feature-screenshot").attr("src", "../assets/img/screenshot-" + i + ".png")
             }
         }
     });
 
-    // ----------- makes login buttons work
-    $("#loginButton").click(function () {
-        $("#loginDiv").removeClass("hide")
+    // Login module
+    $("#parent-login-button").click(function () {
+        $("#parent-login-div").removeClass("hide")
     });
-
+    $("#teacher-login-button").click(function () {
+        $("#teacher-login-div").removeClass("hide")
+    });
     $(".close").click(function () {
-        $("#loginDiv").addClass("hide")
+        $("#parent-login-div").addClass("hide")
+        $("#teacher-login-div").addClass("hide")
     });
 });
