@@ -1,3 +1,12 @@
+*{
+    font-family: 'Quicksand', sans-serif;
+}
+
+.logo{
+    font-size:2em;
+    font-weight: 700;
+}
+
 #parent-login-div,#teacher-login-div{
     background:rgba(0,0,0,0.5);
     position: absolute;
@@ -15,9 +24,16 @@
 #hero{
     display: flex;
     align-items: center;
-    justify-content: left; 
-    background-image: url("../img/hero.png");
-    background-size: cover;
-    background-position: center;
-    height: 480px;
+    justify-content: left;
+    background: url("../img/hero.png") no-repeat center center;
+    background-size: 100% auto;
+    height: 600px;
+}
+
+.thiqq{
+    font-size:1em;
+}
+
+.thinn{
+    font-size:1.5em;
 }

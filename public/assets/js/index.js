@@ -69,6 +69,7 @@ $(document).ready(function () {
     })
     
     // Tab through feature screenshots
+    $(".feature").first().addClass("active")
     $(".feature").click(function () {
         console.log($(this).text());
         $(".feature").removeClass("active")
