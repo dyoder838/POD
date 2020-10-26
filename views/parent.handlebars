@@ -43,32 +43,54 @@
         <section class="col s12 m12 l9">
             <div class="row">
                 {{#each parent}}
-                <div class="col s12">
-                    <div class="card">
-                        <div class="card-content">
-                            <h3>
-                                <span class="thiqq">{{Parent.id}}</span>
-                                 {{Parent.first_name}} {{Parent.last_name}}
-                            </h3>
-                            <ul>
-                                <li>Monday: {{Parent.monday}}</li>
-                                <li>Tuesday: {{Parent.tuesday}}</li>
-                                <li>Wednesday: {{Parent.wednesday}}</li>
-                                <li>Thursday: {{Parent.thursday}}</li>
-                                <li>Friday: {{Parent.friday}}</li>
-                            </ul>
-                            {{#if Students}}
-                            <h4>Students</h4>
-                            <ul class="thinn">
-                                {{#each Students}}
-                                <li>{{first_name}} {{last_name}}</li>
-                                {{/each}}
-                            </ul>
-                            {{/if}}
-                        </div>
-                    </div>
+    
+        <article class="col xl4">
+
+            <div class="card blue-grey darken-1">
+                <div class="card-content white-text">
+                    <span class="card-title">POD {{this.ParentId}} - {{this.Parent.first_name}}
+                        {{this.Parent.last_name}}</span>
+
+                    <ul> Days this pod is available
+                        
+                        {{#if this.Parent.monday}}
+                        <li>
+                            Monday
+                        </li>
+                        {{/if}}
+                        {{#if this.Parent.tuesday}}
+                        <li>
+                            Tuesday
+                        </li>
+                        {{/if}}
+                        {{#if this.Parent.wednesday}}
+                        <li>
+                            Wednesday
+                        </li>
+                        {{/if}}
+                        {{#if this.Parent.thursday}}
+                        <li>
+                            Thursday
+                        </li>
+                        {{/if}}
+                        {{#if this.Parent.friday}}
+                        <li>
+                            Friday
+                        </li>
+                        {{/if}}
+                    </ul>
+                    <ul>Students in this pod
+                        {{#each this.Students}}
+                        <li>{{this.first_name}} {{this.last_name}}</li>
+                        {{/each}}
+                    </ul>
+
                 </div>
-                {{/each}}
+            </div>
+
+        </article>
+
+        {{/each}}
             </div>
         </section>
     </div>

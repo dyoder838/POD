@@ -36,7 +36,7 @@ app.use(authController);
 app.use(podController);
  
 // Start App
-db.sequelize.sync({ force: true }).then(() => {
+db.sequelize.sync({ force: false }).then(() => {
     app.listen(PORT, () => {
     console.log("App listening on PORT " + PORT);
     });
