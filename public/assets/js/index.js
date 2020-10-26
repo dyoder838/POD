@@ -1,6 +1,6 @@
 $(document).ready(function () {
     
-    // Parent Sign up
+    // Parent Sign up ------------------------------------------------
     $("#parent-submit-button").on("click", function (event) {
         event.preventDefault();
         // Define parentObject to send to authController
@@ -27,7 +27,7 @@ $(document).ready(function () {
         });
     });
 
-    // Teacher Signup
+    // Teacher Signup ------------------------------------------------
     $("#teacher-submit-button").on("click", function (event) {
         event.preventDefault();
         // Define teacherObject to send to authController
@@ -49,7 +49,7 @@ $(document).ready(function () {
         });
     });
 
-    // Add Student
+    // Add Student --------------------------------------------------
     $("#createStudentForm").on("submit",event=>{
         event.preventDefault();
         const studentObj = {
@@ -67,7 +67,7 @@ $(document).ready(function () {
             window.location.href= "/parent"
         })
     })
-
+    
     // Tab through feature screenshots
     $(".feature").first().addClass("active")
     $(".feature").click(function () {
