@@ -73,7 +73,7 @@ $(document).ready(function () {
         console.log($(this).text());
         $(".feature").removeClass("active")
         for (var i = 0; i < 4; i++) {
-            if ($(this).data("f") === i) {
+            if ($(this).data("feature") === i) {
                 $(this).addClass("active")
                 $(".feature-screenshot").attr("src", "../assets/img/screenshot-" + i + ".png")
             }
@@ -81,10 +81,14 @@ $(document).ready(function () {
     });
 
     // Login module
-    $("#loginButton").click(function () {
-        $("#loginDiv").removeClass("hide")
+    $("#parent-login-button").click(function () {
+        $("#parent-login-div").removeClass("hide")
+    });
+    $("#teacher-login-button").click(function () {
+        $("#teacher-login-div").removeClass("hide")
     });
     $(".close").click(function () {
-        $("#loginDiv").addClass("hide")
+        $("#parent-login-div").addClass("hide")
+        $("#teacher-login-div").addClass("hide")
     });
 });

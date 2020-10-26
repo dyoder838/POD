@@ -22,14 +22,15 @@
                         <li><a class="btn" href="/logout">logout</a></li>
                         {{/if}}
                         {{#unless user}}
-                        <li><a class="btn" id="loginButton">Login</a></li>
+                        <li><a id="teacher-login-button">Teacher Login</a></li>
+                        <li><a class="btn" id="parent-login-button">Parent Login</a></li>
                         {{/unless}}
                     </ul>
                 </div>
             </div>
         </nav>
     </div>
-    <div id="loginDiv" class="hide">
+    <div id="parent-login-div" class="hide">
         <div class="card-panel">
             <h4>Parent Login</h4>
             <form action="/login/parent" method="POST">
@@ -39,6 +40,8 @@
                 <a class="btn-flat close">Close</a>
             </form>
         </div>
+    </div>
+    <div id="teacher-login-div" class="hide">
         <div class="card-panel">
             <h4>Teacher Login</h4>
             <form action="/login/teacher" method="POST">
@@ -49,7 +52,9 @@
             </form>
         </div>
     </div>
+    <div class="container">
     {{{ body }}}
+    </div>
     <footer class="footer-copyright spacing">
         <div class="container">
             <p class="flow-text center-align">© PODS Team</p>
