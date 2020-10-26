@@ -27,7 +27,7 @@ router.post('/signup/parent', (req, res) => {
             })
     }).catch(err => {
         console.log(err);
-        res.status(500).send("server error")
+        res.status(500).send("Server error")
     })
 })
 
@@ -47,7 +47,7 @@ router.post('/signup/teacher', (req, res) => {
         res.redirect("/teacher")
     }).catch(err => {
         console.log(err);
-        res.status(500).send("server error")
+        res.status(500).send("Server error")
     })
 })
 
@@ -63,7 +63,7 @@ router.post('/signup/student', (req, res) => {
     })
     .catch(err => {
         console.log(err);
-        res.status(500).send("server error")
+        res.status(500).send("Server error")
     })
 })
 
@@ -75,7 +75,7 @@ router.post('/login/parent', (req, res) => {
         //check if user entered password matches db password
         if (!user) {
             req.session.destroy();
-            return res.status(401).send('incorrect email or password')
+            return res.status(401).redirect("/error")
 
         } else if (bcrypt.compareSync(req.body.parentPassword, user.password)) {
             req.session.user = {
@@ -86,7 +86,7 @@ router.post('/login/parent', (req, res) => {
         }
         else {
             req.session.destroy();
-            return res.status(401).send('incorrect email or password')
+            return res.status(401).redirect("/error")
         }
     })
 })
@@ -100,7 +100,7 @@ router.post('/login/teacher', (req, res) => {
         //check if user entered password matches db password
         if (!user) {
             req.session.destroy();
-            return res.status(401).send('incorrect email or password')
+            return res.status(401).redirect("/error")
 
         } else if (bcrypt.compareSync(req.body.teacherPassword, user.password)) {
             req.session.user = {
@@ -111,7 +111,7 @@ router.post('/login/teacher', (req, res) => {
         }
         else {
             req.session.destroy();
-            return res.status(401).send('incorrect email or password')
+            return res.status(401).redirect("/error")
         }
     })
 })

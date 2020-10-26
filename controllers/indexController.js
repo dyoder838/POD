@@ -14,22 +14,22 @@ router.get("/signup/parent", (req, res) => {
 
 // Parent page
 router.get("/parent",(req,res)=>{
-   if(req.session.user){
-    db.Pod.findAll({
-        include: [db.Parent,db.Student]
-    }).then(pods=>{
-        const podsJson=pods.map(pod=>pod.toJSON());
-        console.log(podsJson)
-        const hbsObj = {
-            user: req.session.user,
-            parent: podsJson
-        }
-        console.log(hbsObj)
-        res.render("parent", hbsObj);
-    })
-}else{
-    res.redirect("/")
-}
+    if(req.session.user){
+        db.Pod.findAll({
+            include: [db.Parent,db.Student]
+        }).then(pods=>{
+            const podsJson=pods.map(pod=>pod.toJSON());
+            console.log(podsJson)
+            const hbsObj = {
+                user: req.session.user,
+                parent: podsJson
+            }
+            console.log(hbsObj)
+            res.render("parent", hbsObj);
+        })
+    } else {
+        res.redirect("/")
+    }
 })
 
 // Teacher Sign up page
@@ -39,21 +39,26 @@ router.get('/signup/teacher',function(req,res){
 
 // Teacher page
 router.get("/teacher",(req,res)=>{
-   if(req.session.user){
-    db.Pod.findAll({
-        include: [db.Parent,db.Student]
-    }).then(pods=>{
-        const podsJson=pods.map(pod=>pod.toJSON());
-        console.log(podsJson)
-        const hbsObj = {
-            user: req.session.user,
-            teacher: podsJson
-        }
-        res.render("teacher", hbsObj);
-    })
-}else{
-    res.redirect("/")
-}
+    if(req.session.user){
+        db.Pod.findAll({
+            include: [db.Parent,db.Student]
+        }).then(pods=>{
+            const podsJson=pods.map(pod=>pod.toJSON());
+            console.log(podsJson)
+            const hbsObj = {
+                user: req.session.user,
+                teacher: podsJson
+            }
+            res.render("teacher", hbsObj);
+        })
+    } else {
+        res.redirect("/")
+    }
+})
+
+// Parent Sign up page
+router.get("/error", (req, res) => {
+    res.render("error", { user: req.session.user })
 })
 
 module.exports = router
