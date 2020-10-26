@@ -25,16 +25,18 @@
             </div>
             <div class="row">
                 <div class="col s12">
+                    {{#if parent}}
                     <h5>Students</h5>
                     <ul class="thinn">
                     {{#each parent}}
-                        {{#if parent.Students}}
+                        {{#if Students}}
                             {{#each Students}}
                             <li>{{first_name}} {{last_name}}</li>
                             {{/each}}
                         {{/if}}
                     {{/each}}
                     </ul>
+                    {{/if}}
                 </div>
             </div>
         </section>
