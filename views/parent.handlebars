@@ -1,16 +1,10 @@
     <div class="row">
         <div class="col s12">
-            <h2>Parent</h2>
-            <p class="flow-text">Pods associated with your classroom</p>
+            <h2>PODS</h2>
         </div>
     </div>
     <div class="row">
         <section class="col s12 m4 l3">
-            <div class="row">
-                <div class="col s12">
-                    <h5>Students</h5>
-                </div>
-            </div>
             <div class="row">
                 <div class="col s12">
                     <form id="createStudentForm">
@@ -27,6 +21,20 @@
                             </div>
                         </div>
                     </form>
+                </div>
+            </div>
+            <div class="row">
+                <div class="col s12">
+                    {{#each parent}}
+                    {{#if Students}}
+                    <h5>Students</h5>
+                    <ul class="thinn">
+                        {{#each Students}}
+                        <li>{{first_name}} {{last_name}}</li>
+                        {{/each}}
+                    </ul>
+                    {{/if}}
+                    {{/each}}
                 </div>
             </div>
         </section>
