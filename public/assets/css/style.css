@@ -1,12 +1,4 @@
-.spacing{
-    margin: 4em auto;
-}
-
-.feature{
-    line-height: 2em !important;
-}
-
-#loginDiv{
+#parent-login-div,#teacher-login-div{
     background:rgba(0,0,0,0.5);
     position: absolute;
     z-index:100;
@@ -19,6 +11,13 @@
     justify-content: center; 
     text-align: left; 
 }
-.card-panel{
-    margin: auto 2em;
+
+#hero{
+    display: flex;
+    align-items: center;
+    justify-content: left; 
+    background-image: url("../img/hero.png");
+    background-size: cover;
+    background-position: center;
+    height: 480px;
 }

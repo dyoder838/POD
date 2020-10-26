@@ -8,12 +8,10 @@ module.exports = function(sequelize, DataTypes) {
           type: DataTypes.STRING,
           allowNull:false
       },
-    
-
     });
     Student.associate=function(models){
-    Student.belongsToMany(models.Pod, { through: "Pod_Student" });
-  }
+      Student.belongsToMany(models.Pod, { through: "Pod_Student" });
+    }
     return Student;
   };
   
