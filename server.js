@@ -25,19 +25,14 @@ app.use(session({
 
 // Controllers
 const indexController = require("./controllers/indexController");
-// const studentController = require("./controllers/studentController");
 const authController = require("./controllers/authController");
 const podController = require("./controllers/podController");
 app.use(indexController);
-// app.use("/api/students",studentController);
 app.use(authController);
 app.use(podController);
-
-
-// Databse Models  
-
+ 
 // Start App
-db.sequelize.sync({ force: false }).then(() => {
+db.sequelize.sync({ force: true }).then(() => {
     app.listen(PORT, () => {
     console.log("App listening on PORT " + PORT);
     });
