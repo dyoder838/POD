@@ -1,0 +1,88 @@
+<main class="container">
+
+    {{!-- parent table data source --}}
+    {{!-- parent first name, last name, email, password  --}}
+    <section class="row">
+
+        <article class="col xl12">
+            <h3>Here you create your Profile </h3>
+            <h5>Your email will be your user name</h5>
+        </article>
+
+    </section>
+
+    {{!-- parent field --}}
+    <section id="parent-section-row">
+
+            <form action="/parent/signup">
+
+                <div class="input-field col xl3">
+
+                    <input id="parentFirst" type="text" class="validate">
+                    <label for="parentFirst">First Name</label>
+                    <span class="helper-text" data-error="wrong" data-success="right"></span>
+
+                </div>
+
+                <div class="input-field col xl3">
+
+                    <input id="parentLast" type="text" class="validate">
+                    <label for="parentLast">Last Name</label>
+                    <span class="helper-text" data-error="wrong" data-success="right"></span>
+
+                </div>
+
+                <div class="input-field col xl3">
+
+                    <input id="parentEmail" type="email" class="validate">
+                    <label for="parentEmail">Email</label>
+                    <span class="helper-text" data-error="wrong" data-success="right"></span>
+
+                </div>
+
+                <div class="input-field col xl3">
+
+                    <input id="parentPassword" type="password" class="validate">
+                    <label for="parentPassword">Password</label>
+                    <span class="helper-text" data-error="wrong" data-success="right"></span>
+
+                </div>
+
+                <p>
+                    <label>
+                        <input type="checkbox" id="monday" name="monday" />
+                        <span>Monday</span>
+                    </label>
+                </p>
+
+                <p>
+                    <label>
+                        <input id="tuesday" type="checkbox" name="tuesday"/>
+                        <span>Tuesday</span>
+                    </label>
+                </p>
+                <p>
+                    <label>
+                        <input id="wednesday" type="checkbox" name="wednesday" />
+                        <span>Wednesday</span>
+                    </label>
+                </p>
+                <p>
+                    <label>
+                        <input id="thursday" type="checkbox" name="thursday" />
+                        <span>Thursday</span>
+                    </label>
+                </p>
+                <p>
+                    <label>
+                        <input id="friday" type="checkbox" name="friday" />
+                        <span>Friday</span>
+                    </label>
+                </p>
+            <button id="parent-submit-button" class="btn waves-effect waves-light" type="submit" name="action">Submit
+            </button>
+        </form>
+
+    </section>
+
+</main>

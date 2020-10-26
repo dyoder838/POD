@@ -1,29 +1,41 @@
 const express = require('express');
-const router= express.Router();
+const router = express.Router();
 const db = require('../models');
 
-router.get('/',function(req,res){
-    res.render("login",{});
+router.get("/", (req, res) => {
+    res.render("login", { user: req.session.user })
+})
+router.get("/signup/parent", (req, res) => {
+    res.render("parentsignup", { user: req.session.user })
 })
 
-router.get('/signup/parent',function(req,res){
-    res.render("signup",{});
+router.get("/parent",(req,res)=>{
+    db.Pod.findAll({
+        include: [db.Parent,db.Student]
+    }).then(pods=>{
+        const podsJson=pods.map(pod=>pod.toJSON());
+        console.log(podsJson)
+        const hbsObj = {
+            user: req.session.user,
+            parent: podsJson
+        }
+        console.log(hbsObj)
+        res.render("parent", hbsObj);
+    })
 })
 
-router.get('/parent',function(req,res){
-    res.render("parent",{});
+router.get("/teacher",(req,res)=>{
+    db.Pod.findAll({
+        include: [db.Parent,db.Student]
+    }).then(pods=>{
+        const podsJson=pods.map(pod=>pod.toJSON());
+        console.log(podsJson)
+        const hbsObj = {
+            user: req.session.user,
+            teacher: podsJson
+        }
+        res.render("teacher", hbsObj);
+    })
 })
 
-router.get('/teacher',function(req,res){
-    res.render("teacher",{});
-})
-
-
-module.exports = router;
-
-// Routes: /, api/teacher, 
-
-// Main Page -login and signup
-
-// auth controllers- /api/signup-create an account POST send to db, when click on login sends POST to api/login---create 
-// htmlroutes (rendering all the html and handlebars)- click on sign up then render handlebars for, "/signup"- to create account
+module.exports = router

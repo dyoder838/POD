@@ -1,0 +1,76 @@
+<div class="container spacing">
+    <div class="row">
+        <section class="col s12 m12 l3 ">
+            <div>
+                <h5>Children</h5>
+                <form id="createStudentForm">
+                    <input type="text" id="studentFirst" placeholder="First Name">
+                    <input type="text" id="studentLast" placeholder="Last Name">
+                    <input type="text" id="StudentId" placeholder="POD ID">
+                    <input class="btn" type="submit" value="Add">
+                </form>
+            </div>
+            <div class="spacing">
+                <h5>Availability</h5>
+                <form id="parent-day-checkbox-form">
+                    <p>
+                        <label>
+                            <input type="checkbox" id="monday" name="monday" />
+                            <span>Monday</span>
+                        </label>
+                    </p>
+                    <p>
+                        <label>
+                            <input id="tuesday" type="checkbox" name="tuesday"/>
+                            <span>Tuesday</span>
+                        </label>
+                    </p>
+                    <p>
+                        <label>
+                            <input id="wednesday" type="checkbox" name="wednesday" />
+                            <span>Wednesday</span>
+                        </label>
+                    </p>
+                    <p>
+                        <label>
+                            <input id="thursday" type="checkbox" name="thursday" />
+                            <span>Thursday</span>
+                        </label>
+                    </p>
+                    <p>
+                        <label>
+                            <input id="friday" type="checkbox" name="friday" />
+                            <span>Friday</span>
+                        </label>
+                    </p>
+                </form>
+            </div>
+        </section>
+        <section class="col s12 m12 l9">
+            <div class="row">
+                {{#each parent}}
+                <div class="col s12 m12">
+                    <div class="card">
+                        <div class="card-content">
+                            <h4 class="podParent"><span>{{Parent.id}} -</span> {{Parent.first_name}} {{Parent.last_name}}</h4>
+                            <ul>
+                                <li>Monday: {{Parent.monday}}</li>
+                                <li>Tuesday: {{Parent.tuesday}}</li>
+                                <li>Wednesday: {{Parent.wednesday}}</li>
+                                <li>Thursday: {{Parent.thursday}}</li>
+                                <li>Friday: {{Parent.friday}}</li>
+                            </ul>
+                            <h5>Students</h5>
+                            <ul>
+                                {{#each Students}}
+                                <li>{{first_name}} {{last_name}}</li>
+                                {{/each}}
+                            </ul>
+                        </div>
+                    </div>
+                </div>
+                {{/each}}
+            </div>
+        </section>
+    </div>
+</div>

@@ -11,24 +11,41 @@
 </head>
 
 <body>
-    <nav>
-        <div class="nav-wrapper">
-            <div class="container">
-                <a href="/" class="brand-logo">PODS</a>
-                <ul id="nav-mobile" class="right hide-on-med-and-down">
-                    <li><a id="loginButton">Login</a></li>
-                </ul>
+    <div class="navbar-fixed">
+        <nav>
+            <div class="nav-wrapper">
+                <div class="container">
+                    <a href="/" class="brand-logo">PODS</a>
+                    <ul id="nav-mobile" class="right hide-on-med-and-down">
+                        {{#if user}}
+                        <li>{{user.email}}</li>
+                        <li><a class="btn" href="/logout">logout</a></li>
+                        {{/if}}
+                        {{#unless user}}
+                        <li><a class="btn" id="loginButton">Login</a></li>
+                        {{/unless}}
+                    </ul>
+                </div>
             </div>
-        </div>
-    </nav>
+        </nav>
+    </div>
     <div id="loginDiv" class="hide">
         <div class="card-panel">
-            <h4>Login</h4>
-            <form action="/login" method="POST">
-                <input type="text" name="email" placeholder="email">
-                <input type="password" name="password" placeholder="password">
+            <h4>Parent Login</h4>
+            <form action="/login/parent" method="POST">
+                <input type="text" name="parentEmail" placeholder="email">
+                <input type="password" name="parentPassword" placeholder="password">
                 <input class="btn" type="submit" value="Login">
-                <a class="btn-flat" id="close">Close</a>
+                <a class="btn-flat close">Close</a>
+            </form>
+        </div>
+        <div class="card-panel">
+            <h4>Teacher Login</h4>
+            <form action="/login/teacher" method="POST">
+                <input type="text" name="teacherEmail" placeholder="email">
+                <input type="password" name="teacherPassword" placeholder="password">
+                <input class="btn" type="submit" value="Login">
+                <a class="btn-flat close">Close</a>
             </form>
         </div>
     </div>

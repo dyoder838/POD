@@ -1,11 +1,11 @@
 const express = require('express');
-const router= express.Router();
+const router = express.Router();
 const db = require('../models');
-// const bcrypt = require('bcrypt');
+const bcrypt = require('bcrypt');
 
 // Parent Signup
 router.post('/signup/parent', (req, res) => {
-    console.log(req.body)
+    console.log(req.body);
     db.Parent.create({
         first_name: req.body.parentFirst,
         last_name: req.body.parentLast,
@@ -15,26 +15,16 @@ router.post('/signup/parent', (req, res) => {
         tuesday: req.body.tuesday,
         wednesday: req.body.wednesday,
         thursday: req.body.thursday,
-        friday: req.body.friday, 
+        friday: req.body.friday,
     }).then(newUser => {
         req.session.user = {
             email: newUser.email,
             id: newUser.id
         }
-        res.redirect("/parent")
-    }).catch(err => {
-        console.log(err);
-        res.status(500).send("server error")
-    })
-})
-
-
-// Student Signup
-router.post('/signup/student', (req, res) => {
-    console.log(req.body)
-    db.Student.create({
-        first_name: req.body.studentFirst,
-        last_name: req.body.studentLast,
+        db.Pod.create({ ParentId: newUser.id })
+            .then(newPod => {
+                res.redirect("/parent")
+            })
     }).catch(err => {
         console.log(err);
         res.status(500).send("server error")
@@ -61,8 +51,22 @@ router.post('/signup/teacher', (req, res) => {
     })
 })
 
+// Student Signup
+router.post('/signup/student', (req, res) => {
+    console.log(req.body)
+    db.Student.create({
+        first_name: req.body.studentFirst,
+        last_name: req.body.studentLast,
+    }).then(function(student){
+        student.addPod(req.body.StudentId)
+    })
+    .catch(err => {
+        console.log(err);
+        res.status(500).send("server error")
+    })
+})
 
-// Parent Login
+// Parent Login - called from the HTML Element directly 
 router.post('/login/parent', (req, res) => {
     db.Parent.findOne({
         where: { email: req.body.parentEmail }
@@ -72,7 +76,7 @@ router.post('/login/parent', (req, res) => {
             req.session.destroy();
             return res.status(401).send('incorrect email or password')
 
-        } else if (bcrypt.compareSync(req.body.password, user.password)) {
+        } else if (bcrypt.compareSync(req.body.parentPassword, user.password)) {
             req.session.user = {
                 email: user.email,
                 id: user.id
@@ -87,7 +91,7 @@ router.post('/login/parent', (req, res) => {
 })
 
 
-// Teacher Login
+// Teacher Login -called from the HTML Element directly 
 router.post('/login/teacher', (req, res) => {
     db.Teacher.findOne({
         where: { email: req.body.teacherEmail }
@@ -97,7 +101,7 @@ router.post('/login/teacher', (req, res) => {
             req.session.destroy();
             return res.status(401).send('incorrect email or password')
 
-        } else if (bcrypt.compareSync(req.body.password, user.password)) {
+        } else if (bcrypt.compareSync(req.body.teacherPassword, user.password)) {
             req.session.user = {
                 email: user.email,
                 id: user.id
@@ -115,7 +119,7 @@ router.post('/login/teacher', (req, res) => {
 // Logout 
 router.get('/logout', (req, res) => {
     req.session.destroy();
-    res.send('logged out')
+    res.redirect("/")
 })
 
 // Session 
