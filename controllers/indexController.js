@@ -14,6 +14,7 @@ router.get("/signup/parent", (req, res) => {
 
 // Parent page
 router.get("/parent",(req,res)=>{
+   if(req.session.user){
     db.Pod.findAll({
         include: [db.Parent,db.Student]
     }).then(pods=>{
@@ -26,6 +27,9 @@ router.get("/parent",(req,res)=>{
         console.log(hbsObj)
         res.render("parent", hbsObj);
     })
+}else{
+    res.redirect("/")
+}
 })
 
 // Teacher Sign up page
@@ -35,6 +39,7 @@ router.get('/signup/teacher',function(req,res){
 
 // Teacher page
 router.get("/teacher",(req,res)=>{
+   if(req.session.user){
     db.Pod.findAll({
         include: [db.Parent,db.Student]
     }).then(pods=>{
@@ -46,6 +51,9 @@ router.get("/teacher",(req,res)=>{
         }
         res.render("teacher", hbsObj);
     })
+}else{
+    res.redirect("/")
+}
 })
 
 module.exports = router

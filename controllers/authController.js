@@ -58,7 +58,8 @@ router.post('/signup/student', (req, res) => {
         first_name: req.body.studentFirst,
         last_name: req.body.studentLast,
     }).then(function(student){
-        student.addPod(req.body.StudentId)
+        student.addPod(req.body.StudentId);
+        res.json(true);
     })
     .catch(err => {
         console.log(err);
