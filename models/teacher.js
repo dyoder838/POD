@@ -20,7 +20,7 @@ module.exports = function (sequelize, DataTypes) {
 
   Teacher.beforeCreate(function(teacher){
     teacher.password = bcrypt.hashSync(teacher.password, bcrypt.genSaltSync(10),null);
-})
+  })
   return Teacher;
 
 };

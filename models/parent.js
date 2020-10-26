@@ -33,13 +33,11 @@ module.exports = function(sequelize, DataTypes) {
 
        password: DataTypes.STRING,
     });
-
     Parent.associate=function(models){
       Parent.hasOne(models.Pod, {foreignKey: {allowNull:true}})
-    }; 
-
-  Parent.beforeCreate(function(parent){
-    parent.password = bcrypt.hashSync(parent.password, bcrypt.genSaltSync(10),null);
-})
+    };
+    Parent.beforeCreate(function(parent){
+      parent.password = bcrypt.hashSync(parent.password, bcrypt.genSaltSync(10),null);
+    })
     return Parent;
   };

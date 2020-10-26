@@ -66,7 +66,7 @@ router.post('/signup/student', (req, res) => {
     })
 })
 
-// Parent Login - called from the HTML Element directly 
+// Parent Login
 router.post('/login/parent', (req, res) => {
     db.Parent.findOne({
         where: { email: req.body.parentEmail }
@@ -91,7 +91,7 @@ router.post('/login/parent', (req, res) => {
 })
 
 
-// Teacher Login -called from the HTML Element directly 
+// Teacher Login
 router.post('/login/teacher', (req, res) => {
     db.Teacher.findOne({
         where: { email: req.body.teacherEmail }
