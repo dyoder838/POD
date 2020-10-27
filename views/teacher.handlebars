@@ -1,30 +1,22 @@
-<main class="container">
     {{!-- welcome header --}}
     <header class="row">
-
-        <article class="col xl12">
-
-            <h3>Welcome Teacher</h3>
-            <h5>Here is a list of active pods associated with your classroom</h5>
-
+        <article class="col s12">
+            <h2>Welcome Teacher</h2>
+            <h5>Active pods associated with your classroom</h5>
         </article>
-
     </header>
 
     {{!-- pod view --}}
 
     <section class="row">
         {{#each teacher}}
-    
-        <article class="col xl4">
-
-            <div class="card blue-grey darken-1">
+        <div class="col s12 m6 l6">
+            <div class="card blue-grey darken-1 pod">
                 <div class="card-content white-text">
                     <span class="card-title">POD {{this.ParentId}} - {{this.Parent.first_name}}
                         {{this.Parent.last_name}}</span>
-
-                    <ul> Days this pod is available
-                        
+                    <h5>Availability</h5>
+                    <ul> 
                         {{#if this.Parent.monday}}
                         <li>
                             Monday
@@ -51,19 +43,14 @@
                         </li>
                         {{/if}}
                     </ul>
-                    <ul>Students in this pod
+                    <h5>Students</h5>
+                    <ul>
                         {{#each this.Students}}
                         <li>{{this.first_name}} {{this.last_name}}</li>
                         {{/each}}
                     </ul>
-    
                 </div>
-                
             </div>
-
-        </article>
-
+        </div>
         {{/each}}
     </section>
-
-</main>

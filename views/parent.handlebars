@@ -43,54 +43,49 @@
         <section class="col s12 m12 l9">
             <div class="row">
                 {{#each parent}}
-    
-        <article class="col xl4">
-
-            <div class="card blue-grey darken-1">
-                <div class="card-content white-text">
-                    <span class="card-title">POD {{this.ParentId}} - {{this.Parent.first_name}}
-                        {{this.Parent.last_name}}</span>
-
-                    <ul> Days this pod is available
-                        
-                        {{#if this.Parent.monday}}
-                        <li>
-                            Monday
-                        </li>
-                        {{/if}}
-                        {{#if this.Parent.tuesday}}
-                        <li>
-                            Tuesday
-                        </li>
-                        {{/if}}
-                        {{#if this.Parent.wednesday}}
-                        <li>
-                            Wednesday
-                        </li>
-                        {{/if}}
-                        {{#if this.Parent.thursday}}
-                        <li>
-                            Thursday
-                        </li>
-                        {{/if}}
-                        {{#if this.Parent.friday}}
-                        <li>
-                            Friday
-                        </li>
-                        {{/if}}
-                    </ul>
-                    <ul>Students in this pod
-                        {{#each this.Students}}
-                        <li>{{this.first_name}} {{this.last_name}}</li>
-                        {{/each}}
-                    </ul>
-
+                <div class="col s12 m6 l6">
+                    <div class="card blue-grey darken-1 pod">
+                        <div class="card-content white-text">
+                            <span class="card-title">POD {{this.ParentId}} - {{this.Parent.first_name}}
+                                {{this.Parent.last_name}}</span>
+                            <h5>Availability</h5>
+                            <ul> 
+                                {{#if this.Parent.monday}}
+                                <li>
+                                    Monday
+                                </li>
+                                {{/if}}
+                                {{#if this.Parent.tuesday}}
+                                <li>
+                                    Tuesday
+                                </li>
+                                {{/if}}
+                                {{#if this.Parent.wednesday}}
+                                <li>
+                                    Wednesday
+                                </li>
+                                {{/if}}
+                                {{#if this.Parent.thursday}}
+                                <li>
+                                    Thursday
+                                </li>
+                                {{/if}}
+                                {{#if this.Parent.friday}}
+                                <li>
+                                    Friday
+                                </li>
+                                {{/if}}
+                            </ul>
+                            <h5>Students</h5>
+                            <ul>
+                                {{#each this.Students}}
+                                <li>{{this.first_name}} {{this.last_name}}</li>
+                                {{/each}}
+                            </ul>
+                        </div>
+                    </div>
                 </div>
-            </div>
-
-        </article>
-
-        {{/each}}
+                {{/each}}
             </div>
         </section>
     </div>
